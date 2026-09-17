@@ -170,7 +170,7 @@
         .features {
             max-width: 100%;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 0;
             background: #f5f1e8;
             overflow: hidden;
         }
@@ -209,6 +209,28 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #fff;
+            border: 2px solid transparent;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .feature-icon-green  { background: #3aa757; border-color: #2e8c48; }
+        .feature-icon-yellow { background: #f9bd3c; border-color: #e5a620; color: #1a1a19; }
+        .feature-icon-red    { background: #ef5a50; border-color: #d9443a; }
+        .feature-icon-blue   { background: #4a8af4; border-color: #3874dc; }
 
         .feature-card h3 {
             font-size: 1rem;
@@ -524,10 +546,6 @@
                 padding: 0 1rem;
             }
 
-            .features-grid {
-                padding: 1rem;
-            }
-
             .feature-card {
                 flex: 0 0 240px;
                 min-width: 240px;
@@ -579,42 +597,72 @@
             <h2 class="features-title">Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><circle cx="8.5" cy="12" r=".8" fill="currentColor"/><circle cx="12.5" cy="12" r=".8" fill="currentColor"/><circle cx="16.5" cy="12" r=".8" fill="currentColor"/></svg>
+                    </div>
                     <h3>Talk to Your Timeline</h3>
                     <p>Type or speak naturally to add, edit, move, or reorganize events. Say "add a gym session every Monday starting next week" or "push my vacation back two weeks" — Moimo proposes the changes, you review and confirm.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-yellow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21.5h4"/><path d="M12 2.5a6.5 6.5 0 0 0-3.9 11.7c.6.5.9 1.1.9 1.8v.5h6v-.5c0-.7.3-1.3.9-1.8A6.5 6.5 0 0 0 12 2.5z"/></svg>
+                    </div>
                     <h3>AI Overview</h3>
                     <p><strong>Now</strong> — what needs your attention today. <strong>Enhancements</strong> — ways to improve, combine, or clean up existing events. <strong>Suggestions</strong> — new events the AI recommends based on your patterns.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-red" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="11" height="4.5" rx="1.5"/><rect x="7" y="9.75" width="14" height="4.5" rx="1.5"/><rect x="3" y="16" width="13" height="4.5" rx="1.5"/></svg>
+                    </div>
                     <h3>Multiple Timelines</h3>
                     <p>Organize your life by domain — Work, Personal, Health, or anything you choose. Each timeline is its own colored lane on the canvas.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-green" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5l1.75 1.75L8.5 5"/><path d="M3.5 12.5l1.75 1.75L8.5 11"/><circle cx="6" cy="18.5" r="1.6"/><path d="M11.5 6.5h9"/><path d="M11.5 12.5h9"/><path d="M11.5 18.5h9"/></svg>
+                    </div>
                     <h3>Track Progress</h3>
                     <p>Turn any event into a task with checklists. Track completion at a glance — color-coded status badges show what's done, in progress, or overdue right on the timeline.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.5l3 3-3 3"/><path d="M4 11.5v-2a4 4 0 0 1 4-4h12"/><path d="M7 21.5l-3-3 3-3"/><path d="M20 12.5v2a4 4 0 0 1-4 4H4"/></svg>
+                    </div>
                     <h3>Recurring Events</h3>
                     <p>Set daily, weekly, monthly, yearly, or custom intervals. Past occurrences appear as a faded visual history, so you can see your streaks and patterns over time.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-yellow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5l-8.2 8.2a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>
+                    </div>
                     <h3>Rich Event Details</h3>
                     <p>Attach photos, record voice notes, pin locations, and write descriptions. Every event can be as simple or as detailed as you want.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-red" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.8 8.2l-2.1 5.5-5.5 2.1 2.1-5.5z"/></svg>
+                    </div>
                     <h3>Discover Blueprints</h3>
                     <p>Browse community blueprints — AI-curated timeline templates for fitness plans, career roadmaps, creative projects, and more. Pick a start date and adopt one as your own.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-green" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6"/><path d="M8.2 13.2l7.6 4.6"/></svg>
+                    </div>
                     <h3>Share & Collaborate</h3>
                     <p>Share a snapshot of any timeline as a read-only link others can adopt. Invite others to co-edit a timeline in real time with Moimo+.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2" width="13" height="20" rx="3"/><rect x="8.5" y="5.5" width="7" height="6" rx="1.2"/><path d="M8.5 15h7"/><path d="M10.5 18.5h3"/></svg>
+                    </div>
                     <h3>Focus Now Widget</h3>
                     <p>A home screen widget showing AI-prioritized items that need your attention, updated throughout the day.</p>
                 </div>
                 <div class="feature-card">
+                    <div class="feature-icon feature-icon-yellow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M3 9.5h18"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M12 12.5v6"/><path d="M9.5 16l2.5 2.5 2.5-2.5"/></svg>
+                    </div>
                     <h3>Calendar Import</h3>
                     <p>Bring in events from your existing iOS calendars. Select a date range, pick which calendars to include, and import in one tap.</p>
                 </div>
