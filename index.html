@@ -281,6 +281,99 @@
             margin-bottom: 3rem;
         }
 
+        /* Showcase rows (same pattern as the Instagram posts) */
+        .showcase {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        .showcase-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .show-row {
+            --accent: #4a8af4; --accent-edge: #3874dc; --accent-ink: #fff; --accent-soft: #dfe9fb;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 2.5rem 0;
+        }
+
+        .show-green  { --accent: #3aa757; --accent-edge: #2e8c48; --accent-ink: #fff;    --accent-soft: #dcefe0; }
+        .show-yellow { --accent: #f9bd3c; --accent-edge: #e5a620; --accent-ink: #1a1a19; --accent-soft: #fbeccb; }
+        .show-red    { --accent: #ef5a50; --accent-edge: #d9443a; --accent-ink: #fff;    --accent-soft: #f8dcd8; }
+        .show-blue   { --accent: #4a8af4; --accent-edge: #3874dc; --accent-ink: #fff;    --accent-soft: #dfe9fb; }
+
+        .show-row:nth-child(odd) .show-copy {
+            order: 2;
+        }
+
+        .show-copy h3 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .show-chip {
+            display: inline-block;
+            margin: 0.35rem 0 0.25rem;
+            padding: 0.05em 0.4em 0.1em;
+            font-size: 0.9em;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: var(--accent);
+            color: var(--accent-ink);
+            border: 4px solid var(--accent-edge);
+            border-radius: 14px;
+        }
+
+        .show-copy p {
+            margin-top: 1.5rem;
+            max-width: 24rem;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #57524f;
+        }
+
+        .show-media {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem 0;
+        }
+
+        .show-media::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: min(460px, 100%);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            transform: translate(-50%, -50%);
+        }
+
+        .show-media .screenshot {
+            --phone-w: 290px;
+            transform: rotate(3deg);
+        }
+
+        .show-row:nth-child(odd) .show-media .screenshot {
+            transform: rotate(-3deg);
+        }
+
+        .show-media .screenshot:hover,
+        .show-row:nth-child(odd) .show-media .screenshot:hover {
+            transform: rotate(0deg) translateY(-4px);
+        }
+
         /* iPhone frame around each screenshot */
         .screenshot {
             --phone-w: 300px;
@@ -551,8 +644,22 @@
                 min-width: 240px;
             }
 
-            .screenshot {
-                --phone-w: 240px;
+            .showcase {
+                padding: 1rem 1.5rem 3rem;
+            }
+
+            .show-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            .show-row:nth-child(odd) .show-copy {
+                order: 0;
+            }
+
+            .show-media .screenshot {
+                --phone-w: 230px;
             }
 
             .ctas {
@@ -669,35 +776,105 @@
             </div>
         </section>
 
-        <section class="screenshots">
-            <h2 class="screenshots-title">See it in action</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot">
-                    <img src="screenshot-1.png" alt="Moimo">
+        <section class="showcase">
+            <h2 class="showcase-title">See it in action</h2>
+            <div class="show-row show-yellow">
+                <div class="show-copy">
+                    <h3>Know what<br><span class="show-chip">needs you</span><br>today.</h3>
+                    <p>The AI Overview surfaces what’s overdue, in progress and coming up next.</p>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-2.png" alt="Moimo">
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-1.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-3.png" alt="Moimo">
+            </div>
+            <div class="show-row show-blue">
+                <div class="show-copy">
+                    <h3>Plan<br><span class="show-chip">every step</span><br>at a glance.</h3>
+                    <p>Every step of your project, laid out on one zoomable timeline.</p>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-4.png" alt="Moimo">
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-2.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-5.png" alt="Moimo">
+            </div>
+            <div class="show-row show-green">
+                <div class="show-copy">
+                    <h3>Build habits<br><span class="show-chip">that stick.</span></h3>
+                    <p>Recurring events keep your streaks visible, week after week.</p>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-6.png" alt="Moimo">
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-3.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-7.png" alt="Moimo">
+            </div>
+            <div class="show-row show-red">
+                <div class="show-copy">
+                    <h3>Stay on<br><span class="show-chip">top of</span><br>your goals.</h3>
+                    <p>Progress bars and gentle nudges keep you moving forward.</p>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-8.png" alt="Moimo">
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-4.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
                 </div>
-                <div class="screenshot">
-                    <img src="screenshot-9.png" alt="Moimo">
+            </div>
+            <div class="show-row show-yellow">
+                <div class="show-copy">
+                    <h3>Start with a<br><span class="show-chip">blueprint.</span></h3>
+                    <p>Ready-made plans for fitness, career, mindfulness and more.</p>
+                </div>
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-5.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="show-row show-blue">
+                <div class="show-copy">
+                    <h3>One life,<br><span class="show-chip">many</span><br>timelines.</h3>
+                    <p>Work, Health, Travel — each gets its own coloured lane.</p>
+                </div>
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-6.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="show-row show-green">
+                <div class="show-copy">
+                    <h3>Just<br><span class="show-chip">tell Moimo.</span></h3>
+                    <p>Type or speak what you need. Review the changes, then confirm.</p>
+                </div>
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-7.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="show-row show-red">
+                <div class="show-copy">
+                    <h3>Sleep better<br><span class="show-chip">in 4 weeks.</span></h3>
+                    <p>Adopt a blueprint and every step lands right on your timeline.</p>
+                </div>
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-8.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="show-row show-blue">
+                <div class="show-copy">
+                    <h3>Every detail<br><span class="show-chip">in one</span><br>place.</h3>
+                    <p>Tasks, repeats, colours, photos and voice notes — all on the event.</p>
+                </div>
+                <div class="show-media">
+                    <div class="screenshot">
+                        <img src="screenshot-9.png" alt="Moimo screenshot" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
