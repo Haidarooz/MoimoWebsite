@@ -204,29 +204,72 @@
             padding: 1rem 0;
             padding-left: 2rem;
             padding-right: 2rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
             scroll-behavior: smooth;
             margin-bottom: 3rem;
         }
 
+        /* iPhone frame around each screenshot */
         .screenshot {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --phone-w: 300px;
+            --bezel: calc(var(--phone-w) * 0.037);
+            --screen-w: calc(var(--phone-w) - 2 * var(--bezel));
+            --screen-r: calc(var(--screen-w) * 0.137);
+            position: relative;
+            flex: 0 0 var(--phone-w);
+            min-width: var(--phone-w);
+            align-self: flex-start;
+            padding: var(--bezel);
+            background: #111;
+            border-radius: calc(var(--screen-r) + var(--bezel));
+            box-shadow:
+                0 0 0 2px #3a3a3c,
+                0 0 0 3px #1c1c1e,
+                0 10px 24px rgba(0, 0, 0, 0.18);
             transition: transform 0.2s, box-shadow 0.2s;
-            flex: 0 0 300px;
-            min-width: 300px;
+        }
+
+        /* Dynamic Island */
+        .screenshot::before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            top: calc(var(--bezel) + var(--screen-w) * 0.027);
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(var(--screen-w) * 0.31);
+            height: calc(var(--screen-w) * 0.092);
+            background: #000;
+            border-radius: 999px;
+        }
+
+        /* Side buttons */
+        .screenshot::after {
+            content: "";
+            position: absolute;
+            right: -5px;
+            top: 26%;
+            width: 3px;
+            height: 13%;
+            background: #3a3a3c;
+            border-radius: 0 2px 2px 0;
         }
 
         .screenshot:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow:
+                0 0 0 2px #3a3a3c,
+                0 0 0 3px #1c1c1e,
+                0 16px 32px rgba(0, 0, 0, 0.22);
         }
 
         .screenshot img {
             width: 100%;
             height: auto;
+            aspect-ratio: 1206 / 2622;
             display: block;
+            border-radius: var(--screen-r);
         }
 
         footer {
@@ -442,8 +485,7 @@
             }
 
             .screenshot {
-                flex: 0 0 240px;
-                min-width: 240px;
+                --phone-w: 240px;
             }
 
             .ctas {
