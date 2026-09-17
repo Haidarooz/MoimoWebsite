@@ -97,15 +97,57 @@
             transform: translateY(-2px);
         }
 
-        button.btn.btn-coming-soon {
-            background: #d4d0c8;
-            color: #8b8581;
-            cursor: not-allowed;
-            border: 2px solid transparent;
+        /* Store buttons */
+        .store-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-width: 190px;
+            padding: 0.6rem 1.4rem 0.65rem;
+            border-radius: 14px;
+            text-decoration: none;
+            font-family: inherit;
+            line-height: 1.15;
+            text-align: left;
+            border: 1px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
         }
 
-        button.btn.btn-coming-soon:hover {
-            background: #d4d0c8;
+        .store-btn .store-small {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.85;
+        }
+
+        .store-btn .store-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        a.store-btn-primary {
+            background: #1a1a19;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(26, 26, 25, 0.22);
+        }
+
+        a.store-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(26, 26, 25, 0.28);
+        }
+
+        a.store-btn-primary:focus-visible {
+            outline: 3px solid #4c92f6;
+            outline-offset: 3px;
+        }
+
+        button.store-btn-soon {
+            background: transparent;
+            color: #8b8581;
+            border: 1px dashed #c4bfb6;
+            cursor: not-allowed;
         }
 
         a.btn-secondary {
@@ -495,6 +537,11 @@
             a.btn {
                 flex: 1;
             }
+
+            .store-btn {
+                flex: 1 1 160px;
+                min-width: 0;
+            }
         }
     </style>
 </head>
@@ -510,8 +557,14 @@
             <p class="tagline">Your life, on a single timeline</p>
             <p class="app-description">Moimo is a visual timeline of everything that matters to you — past, present, and future. Plot milestones, track habits, plan goals, and preserve memories on a single, zoomable canvas anchored to your life.</p>
             <div class="ctas">
-                <a href="https://apps.apple.com" class="btn btn-primary">App Store</a>
-                <button class="btn btn-coming-soon" disabled>Google Play — Coming Soon</button>
+                <a href="https://apps.apple.com" class="store-btn store-btn-primary" aria-label="Download on the App Store">
+                    <span class="store-small">Download on the</span>
+                    <span class="store-name">App Store</span>
+                </a>
+                <button class="store-btn store-btn-soon" disabled aria-label="Google Play, coming soon">
+                    <span class="store-small">Coming soon to</span>
+                    <span class="store-name">Google Play</span>
+                </button>
             </div>
         </section>
 
