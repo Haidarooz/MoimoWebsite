@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moimo — Your life, on a single timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f5f1e8;
+            color: #1a1a19;
+        }
+
+
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #57524f;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .app-description {
+            font-size: 0.95rem;
+            color: #57524f;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        a.btn, button.btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        a.btn-primary {
+            background: #4c92f6;
+            color: white;
+        }
+
+        a.btn-primary:hover {
+            background: #3a7dd4;
+            transform: translateY(-2px);
+        }
+
+        button.btn.btn-coming-soon {
+            background: #d4d0c8;
+            color: #8b8581;
+            cursor: not-allowed;
+            border: 2px solid transparent;
+        }
+
+        button.btn.btn-coming-soon:hover {
+            background: #d4d0c8;
+        }
+
+        a.btn-secondary {
+            background: white;
+            color: #1a1a19;
+            border: 2px solid #e8e4db;
+        }
+
+        a.btn-secondary:hover {
+            border-color: #1a1a19;
+        }
+
+        .features {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: #f5f1e8;
+            overflow: hidden;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 2rem;
+        }
+
+        .features-grid {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 2rem;
+            scroll-behavior: smooth;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: #faf8f3;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            flex: 0 0 280px;
+            min-width: 280px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #57524f;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .features-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .features-grid::-webkit-scrollbar-track {
+            background: #f5f1e8;
+        }
+
+        .features-grid::-webkit-scrollbar-thumb {
+            background: #d4d0c8;
+            border-radius: 4px;
+        }
+
+        .features-grid::-webkit-scrollbar-thumb:hover {
+            background: #c4bfb6;
+        }
+
+        .screenshots-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .screenshots-grid {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            scroll-behavior: smooth;
+            margin-bottom: 3rem;
+        }
+
+        .screenshot {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex: 0 0 300px;
+            min-width: 300px;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid #e8e4db;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #57524f;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #1a1a19;
+        }
+
+        .footer-bottom {
+            color: #57524f;
+            font-size: 0.8rem;
+        }
+
+        .support-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .support-modal.active {
+            display: flex;
+        }
+
+        .support-modal-content {
+            background: #faf8f3;
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .support-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #57524f;
+            padding: 0;
+        }
+
+        .close-btn:hover {
+            color: #1a1a19;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e8e4db;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+            background: white;
+            color: #1a1a19;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4c92f6;
+            box-shadow: 0 0 0 3px rgba(76, 146, 246, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .form-actions button {
+            padding: 0.75rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .form-actions .btn-submit {
+            background: #4c92f6;
+            color: white;
+        }
+
+        .form-actions .btn-submit:hover {
+            background: #3a7dd4;
+        }
+
+        .form-actions .btn-cancel {
+            background: #f5f1e8;
+            color: #1a1a19;
+            border: 2px solid #e8e4db;
+        }
+
+        .form-actions .btn-cancel:hover {
+            background: #e8e4db;
+        }
+
+        .success-message {
+            display: none;
+            background: #e6f7e6;
+            color: #2d6b2d;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .screenshots-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .screenshots-grid::-webkit-scrollbar-track {
+            background: #f5f1e8;
+        }
+
+        .screenshots-grid::-webkit-scrollbar-thumb {
+            background: #d4d0c8;
+            border-radius: 4px;
+        }
+
+        .screenshots-grid::-webkit-scrollbar-thumb:hover {
+            background: #c4bfb6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                min-height: 50vh;
+                padding: 2rem 1rem;
+            }
+
+            .features-title {
+                padding: 0 1rem;
+            }
+
+            .features-grid {
+                padding: 1rem;
+            }
+
+            .feature-card {
+                flex: 0 0 240px;
+                min-width: 240px;
+            }
+
+            .screenshot {
+                flex: 0 0 240px;
+                min-width: 240px;
+            }
+
+            .ctas {
+                width: 100%;
+            }
+
+            a.btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <main>
+        <section class="hero">
+            <div class="icon">
+                <img src="/_blob/fcc0d1480af69aa7d247403fcd2d6167" alt="Moimo">
+            </div>
+            <h1>Moimo</h1>
+            <p class="tagline">Your life, on a single timeline</p>
+            <p class="app-description">Moimo is a visual timeline of everything that matters to you — past, present, and future. Plot milestones, track habits, plan goals, and preserve memories on a single, zoomable canvas anchored to your life.</p>
+            <div class="ctas">
+                <a href="https://apps.apple.com" class="btn btn-primary">App Store</a>
+                <button class="btn btn-coming-soon" disabled>Google Play — Coming Soon</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="features-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Talk to Your Timeline</h3>
+                    <p>Type or speak naturally to add, edit, move, or reorganize events. Say "add a gym session every Monday starting next week" or "push my vacation back two weeks" — Moimo proposes the changes, you review and confirm.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>AI Overview</h3>
+                    <p><strong>Now</strong> — what needs your attention today. <strong>Enhancements</strong> — ways to improve, combine, or clean up existing events. <strong>Suggestions</strong> — new events the AI recommends based on your patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multiple Timelines</h3>
+                    <p>Organize your life by domain — Work, Personal, Health, or anything you choose. Each timeline is its own colored lane on the canvas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Track Progress</h3>
+                    <p>Turn any event into a task with checklists. Track completion at a glance — color-coded status badges show what's done, in progress, or overdue right on the timeline.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Recurring Events</h3>
+                    <p>Set daily, weekly, monthly, yearly, or custom intervals. Past occurrences appear as a faded visual history, so you can see your streaks and patterns over time.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Rich Event Details</h3>
+                    <p>Attach photos, record voice notes, pin locations, and write descriptions. Every event can be as simple or as detailed as you want.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Discover Blueprints</h3>
+                    <p>Browse community blueprints — AI-curated timeline templates for fitness plans, career roadmaps, creative projects, and more. Pick a start date and adopt one as your own.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Share & Collaborate</h3>
+                    <p>Share a snapshot of any timeline as a read-only link others can adopt. Invite others to co-edit a timeline in real time with Moimo+.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Focus Now Widget</h3>
+                    <p>A home screen widget showing AI-prioritized items that need your attention, updated throughout the day.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Calendar Import</h3>
+                    <p>Bring in events from your existing iOS calendars. Select a date range, pick which calendars to include, and import in one tap.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshots">
+            <h2 class="screenshots-title">See it in action</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot">
+                    <img src="/_blob/3d3f399b5b6d04b6cb0e19b592b51661" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/9cfd5f0c077fa2bb37f811c88235688b" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/cdb2eb780e088dc7ef1a365be43a92b5" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/710e3d20490bdad0f668570444e236b7" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/08b30d18063d996d9e1f56048a0858cd" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/6ae7c3428509242f5a2ce021d9dca73b" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/19e7d56f01114951579282a6b9fe3fa1" alt="Moimo">
+                </div>
+                <div class="screenshot">
+                    <img src="/_blob/e7550c6babf06802e925f629d0b9901b" alt="Moimo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://claude.ai/artifact/XefEzp5JWsqJbLsBWEFFfe">Legal</a>
+            <a href="#" onclick="openSupportModal(event)">Support</a>
+            <a href="https://instagram.com/moimoapp">Instagram</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Moimo. Your life, on a timeline.</p>
+        </div>
+    </footer>
+
+    <!-- Support Compose Modal -->
+    <div id="supportModal" class="support-modal">
+        <div class="support-modal-content">
+            <div class="support-modal-header">
+                <h2>Contact Support</h2>
+                <button class="close-btn" onclick="closeSupportModal()">&times;</button>
+            </div>
+            <div class="success-message" id="successMessage">
+                Message sent! We'll get back to you soon.
+            </div>
+            <form id="supportForm" onsubmit="submitSupportForm(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeSupportModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openSupportModal(e) {
+            e.preventDefault();
+            document.getElementById('supportModal').classList.add('active');
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').classList.remove('active');
+            document.getElementById('supportForm').reset();
+            document.getElementById('successMessage').classList.remove('show');
+        }
+
+        function submitSupportForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Create mailto link with form data
+            const mailtoLink = `mailto:support@moimo.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Show success message and reset form
+            document.getElementById('successMessage').classList.add('show');
+            setTimeout(() => {
+                closeSupportModal();
+            }, 2000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('supportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSupportModal();
+            }
+        });
+    </script>
+</body>
+</html>
