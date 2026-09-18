@@ -594,20 +594,6 @@
             background: #e8e4db;
         }
 
-        .success-message {
-            display: none;
-            background: #e6f7e6;
-            color: #2d6b2d;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
         .screenshots-grid::-webkit-scrollbar {
             height: 8px;
         }
@@ -898,9 +884,6 @@
                 <h2>Contact Support</h2>
                 <button class="close-btn" onclick="closeSupportModal()">&times;</button>
             </div>
-            <div class="success-message" id="successMessage">
-                Message sent! We'll get back to you soon.
-            </div>
             <form id="supportForm" onsubmit="submitSupportForm(event)">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -935,7 +918,6 @@
         function closeSupportModal() {
             document.getElementById('supportModal').classList.remove('active');
             document.getElementById('supportForm').reset();
-            document.getElementById('successMessage').classList.remove('show');
         }
 
         function submitSupportForm(e) {
@@ -948,14 +930,11 @@
             // Create mailto link with form data
             const mailtoLink = `mailto:support@moimo.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
             
-            // Open email client
+            // Hand the message to the visitor's email app
             window.location.href = mailtoLink;
 
-            // Show success message and reset form
-            document.getElementById('successMessage').classList.add('show');
-            setTimeout(() => {
-                closeSupportModal();
-            }, 2000);
+            // Close the form — their email app takes over from here
+            closeSupportModal();
         }
 
         // Close modal when clicking outside
